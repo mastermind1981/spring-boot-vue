@@ -1,16 +1,28 @@
-group 'com.leegebe'
-version '1.0-SNAPSHOT'
+buildscript{
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
 
-apply plugin: 'java'
-
-sourceCompatibility = 1.5
-
-repositories {
-    mavenCentral()
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE'
+        classpath 'com.moowork.gradle:gradle-node-plugin:0.13'
+    }
 }
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE")
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}
+allprojects {
 
+    group 'com.leegebe'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+}
